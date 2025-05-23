@@ -1,18 +1,19 @@
-{{ define "main" -}}
-<h1 class="title">{{ .Title }}</h1>
-<ul class="entries">
-    {{ range .Pages.GroupByDate "2006" }}
-        <h3 style="text-align: center;">{{ .Key }}</h3>
-        {{ range .Pages }}
-            <li>
-                <span class="title">
-                    <a href="{{ .RelPermalink }}">{{ .Title }}</a>
-                </span>
-                <span class="published">
-                    <time class="pull-right post-list">{{ .Date | time.Format ":date_long" }}</time>
-                </span>
-            </li>
-        {{ end }}
-    {{ end }}
-</ul>
+{{ define "main" }}
+<div class="posts-list">
+  <h1>{{ .Title }}</h1>
+  {{ $paginator := .Paginate .Pages }}
+  {{ range $index, $page := $paginator.Pages }}
+  <article class="post-item">
+    <h2><a href="{{ $page.RelPermalink }}">{{ $page.Title }}</a></h2>
+    <p class="meta">
+      {{ $page.Date.Format "Jan 2, 2006" }} • {{ $page.ReadingTime }} min read
+    </p>
+  </article>
+  {{ if ne $index (sub (len $paginator.Pages) 1) }}
+  <hr class="divider">
+  {{ end }}
+  {{ end }}
+  <hr class="end-divider">
+  {{ partial "pagination.html" . }}
+</div>
 {{ end }}

@@ -1,1 +1,60 @@
 /* Empty css file that users can override in their own /assets/css/custom.css file */
+.posts-list {
+  background-color: var(--bkg-color);
+  color: #fff;
+  padding: 20px;
+}
+.posts-list h1 {
+  color: #fff;
+  font-size: 24px;
+  margin-bottom: 20px;
+}
+.post-item h2 a {
+  color: #00ffcc;
+  text-decoration: none;
+  font-size: 18px;
+}
+.post-item h2 a:hover {
+  text-decoration: underline;
+}
+.post-item .meta {
+  color: #ccc;
+  font-size: 14px;
+  margin: 5px 0;
+}
+.divider {
+  border: 0;
+  border-top: 1px dashed #666;
+  margin: 10px 0;
+}
+.end-divider {
+  border: 0;
+  border-top: 3px solid #ffffff;
+  margin: 30px 0 20px 0;
+}
+.pagination {
+  margin: 20px 0;
+  text-align: center;
+}
+.pagination a {
+  color: var(--link-color);
+  margin: 0 5px;
+  padding: 5px 10px;
+  text-decoration: none;
+  border-radius: 50%;
+}
+.pagination a.active {
+  background: #222;
+  color: var(--link-color);
+  border-radius: 3px;
+  padding: 0 8px;
+  font-weight: bold;
+  text-decoration: none;
+}
+.pagination a:hover {
+  background-color: rgba(0, 255, 204, 0.2);
+  border-radius: 3px;
+}
+body, .content {
+  background-color: var(--bkg-color) !important;
+}
